@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Japan Maker診断 - 診断結果</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <style>
     /* Brand (JM) */
     :root{
@@ -107,6 +108,126 @@
 }
 
 
+
+      /* Minimal add-on styles that follow JM tokens */
+#jm-sales-letter .sls-grid {
+  grid-template-columns: 1fr !important;
+}
+
+      #jm-sales-letter .sls-card{
+        background:var(--white);
+        border:2px solid var(--light-blue);
+        border-radius:12px;
+        padding:20px;
+        box-shadow:0 2px 8px rgba(27,94,158,0.08);
+      }
+      #jm-sales-letter .sls-card h3{
+        font-size:1.15rem; color:var(--primary-blue); margin:0 0 10px 0;
+      }
+      #jm-sales-letter .sls-card p{
+        color:var(--text-dark); line-height:1.8; margin:0 0 10px 0; text-align:left;
+      }
+      #jm-sales-letter .sls-list{
+        margin:8px 0 0 0; padding:0; list-style:none;
+      }
+      #jm-sales-letter .sls-list li{
+        margin:8px 0; color:var(--text-dark); text-align:left;
+      }
+      #jm-sales-letter .sls-kpi{
+        display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;
+      }
+      #jm-sales-letter .kpi{
+        background:var(--light-blue); color:var(--dark-blue);
+        border:1px solid rgba(27,94,158,0.25);
+        border-radius:8px; padding:8px 10px; font-weight:700; font-size:0.95rem;
+      }
+      #jm-sales-letter .road-steps{ display:grid; grid-template-columns:1fr; gap:12px; }
+      #jm-sales-letter .road-step{
+        border-left:6px solid var(--primary-blue);
+        background:#F7FBFF; border-radius:8px; padding:12px 14px; text-align:left;
+        border:1px solid #E0EDF7;
+      }
+      #jm-sales-letter .road-step strong{ color:var(--dark-blue); }
+      #jm-sales-letter .access{
+        display:grid; grid-template-columns:1fr; gap:12px;
+      }
+      #jm-sales-letter .access .mod{
+        border-radius:8px; padding:14px; text-align:left; border:1px solid var(--light-blue);
+      }
+      #jm-sales-letter .mod.offline{ background:#FFF; }
+      #jm-sales-letter .mod.online{ background:#F7FBFF; }
+      #jm-sales-letter .family{
+        background:linear-gradient(135deg, rgba(27,94,158,0.06), rgba(27,94,158,0.03));
+        border:1px solid var(--light-blue); border-radius:12px; padding:16px;
+      }
+      #jm-sales-letter .cta-wrap{
+        margin-top:18px; display:flex; flex-direction:column;   align-items: center !important;
+        justify-content: center;
+        gap: 12px;
+      }
+      #jm-sales-letter .btn{ padding:12px 22px; border-radius:10px; font-weight:700; }
+
+/* ボタンの可読幅と中央ぞろえ */
+#jm-sales-letter .cta-wrap .btn {
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+}
+
+      #jm-sales-letter .btn-primary{ background:var(--primary-blue); color:#fff; border:none; }
+      #jm-sales-letter .btn-secondary{
+        background:#fff; color:var(--primary-blue); border:2px solid var(--primary-blue);
+      }
+      /* Responsive */
+      @media (min-width: 900px){
+        #jm-sales-letter .sls-grid { grid-template-columns: 1fr !important; }
+        #jm-sales-letter .access{ grid-template-columns:1fr 1fr; }
+        #jm-sales-letter .road-steps{ grid-template-columns:1fr 1fr 1fr; }
+      }
+
+
+
+        /* ========================================
+           フッター
+        ======================================== */
+
+
+        .footer {
+            background: var(--light-blue);
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 0px;
+        }
+
+        .footer-links {
+            display: inline;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 0px;
+        }
+
+        .footer-links a {
+            color: rgba(21, 21, 21, 0.7);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .footer-copyright {
+            font-size: 0.85rem;
+            color: rgba(21, 21, 21, 0.5);
+            letter-spacing: 0.05em;
+            margin-top: 20px;
+        }
+
+
   </style>
 </head>
 <body>
@@ -133,10 +254,117 @@
     <strong>診断ID:</strong> <code id="diagnosisId"></code>
   </div>
 
-  <div class="footer">
-    <p>© Japan Maker診断 All rights reserved.</p>
+
+<!-- Sales Letter Section -->
+<section id="jm-sales-letter" class="section">
+  <div class="container">
+    <!-- Centered, short headline -->
+    <div class="c-header" style="text-align:center; margin-bottom:28px;">
+      <h2 style="margin-bottom:8px;">次の90日で、仕事の軸をつくる</h2>
+      <p style="color:var(--text-gray);">診断結果を起点に、<br>学び→成果物→収益化までを一直線に</p>
+    </div>
+
+    <div class="sls-grid">
+      <!-- 1. 未来の職業図（需要根拠＋年収） -->
+      <div class="sls-card">
+        <h3>未来の職業図</h3>
+        <p>インフラ運用・システム設計・データ統合に接続する職能は、今後10年の需要と報酬の両面で優位性が続く見通しです。</p>
+        <ul class="sls-list">
+          <li>System／Structure：都市インフラ・防災・運用の横断スキルは継続投資と紐づきやすい。</li>
+          <li>Habitat：環境・水・植生の基盤整備は公共／民間の長期案件と相性が良い。</li>
+          <li>Product：製造最適化・品質・3D/強度は輸出と地場産業の両輪で伸びる。</li>
+          <li>Sanctuary：教育・医療・住環境の体験改善は地域福祉と民間サービスの重なる土台。</li>
+        </ul>
+        <div class="sls-kpi">
+          <div class="kpi">長期需要</div>
+          <div class="kpi">横断スキル</div>
+          <div class="kpi">上位報酬と接続</div>
+        </div>
+      </div>
+
+      <!-- 2. 学習ロードマップ -->
+      <div class="sls-card">
+        <h3>学習ロードマップ（90日設計）</h3>
+        <div class="road-steps">
+          <div class="road-step"><strong>0–30日：</strong>基礎セット（用語・安全・計測・ツール）＋ミニ課題で手を慣らす。</div>
+          <div class="road-step"><strong>31–60日：</strong>タイプ別ミニPJ（設計・検証・提出）で成果物を作る。</div>
+          <div class="road-step"><strong>61–90日：</strong>現場課題に転用→レビューで改善→ポートフォリオ化。</div>
+        </div>
+        <ul class="sls-list">
+          <li>提出物はテンプレ付き、そのまま案件提案や選考に流用可能。</li>
+          <li>毎週のチェック項目で遅れや詰まりを早期に解消。</li>
+        </ul>
+      </div>
+
+      <!-- 3. 多摩センター & オンライン両方 -->
+      <div class="sls-card">
+        <h3>多摩センター＆オンラインのハイブリッド</h3>
+        <div class="access">
+          <div class="mod offline">
+            <p><strong>多摩センター（通学）</strong></p>
+            <ul class="sls-list">
+              <li>実測・実機・チーム演習で現場さながらの手触り。</li>
+              <li>短時間で「できる」感覚を積み上げる構成。</li>
+            </ul>
+          </div>
+          <div class="mod online">
+            <p><strong>オンライン</strong></p>
+            <ul class="sls-list">
+              <li>録画・メモ・課題テンプレで迷いを最小化。</li>
+              <li>メンター同席レビューで最短の改善ループ。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. ストーリー -->
+<div class="sls-card">
+  <h3>鈴木さんの事例</h3>
+  <div class="family">
+    <p>鈴木さん（38歳・二児の親）。仕事は好きでも、将来の収入計画に不安があり、通勤と子育ての両立に限界を感じていた時期に個別相談を受けました。</p>
+    <p>診断結果にもとづき90日ロードマップを設計。自宅でもできる成果物づくりと、週1回のレビューをセットにして、迷わず進める状態を用意しました。</p>
+    <ul class="sls-list">
+      <li>0–30日：基礎課題で手を慣らし、用語・安全・計測・ツールを短時間で習得。</li>
+      <li>31–60日：タイプ別ミニプロジェクト（設計・検証・提出）で実物の成果物を構築。</li>
+      <li>61–90日：現場準拠の提案資料へ転用し、メンターのレビューで仕上げを最短化。</li>
+    </ul>
+    <p>週10時間の学習ペースでも進捗が見えることで、焦りが解消。現在の職場を続けながら副収入を作り、もしもの時の選択肢（転職・独立・社内異動）を複線化できました。</p>
+    <p>結果として、家計の予測可能性が上がり、子育てや住まいの計画も崩れにくくなりました。</p>
   </div>
 </div>
+
+    </div>
+
+    <!-- 5. 個別相談 CTA -->
+    <div class="sls-card" style="margin-top:20px;">
+      <h3>個別相談（無料・オンライン可）</h3>
+      <p>診断結果をもとに、やること／やらないこと／最短ルートを30分で整理します。実施後は90日ロードマップ雛形と今週の小タスクをお渡しします。</p>
+      <ul class="sls-list">
+        <li>決めること：ゴール、90日計画、成果物、最初の資格／案件の順番。</li>
+        <li>持ち物：診断ID、これまでの学び、現在の制約（時間・場所・予算）。</li>
+      </ul>
+      <div class="cta-wrap">
+        <a href="#consult" class="btn btn-primary">今すぐ個別相談を予約する<br>（無料・オンラインOK）</a>
+        <a href="#guide" class="btn btn-secondary">資料ダウンロード<br>（ロードマップ雛形付き）</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="tokusho.html" target="_blank">特商法</a> 　　 
+            <a href="privacy.html" target="_blank">プライバシーポリシー</a>
+        </div>
+        <div class="footer-copyright">
+            © Japan Maker
+        </div>
+    </footer>
+
 
 <script>
 (async function(){
